@@ -16,7 +16,8 @@
  `` skupper gateway init --type docker
   ``
 - Create and bind local service</br></br>
-``skupper service create amq-service 5672
+``skupper service create amq-service 5672``</br>
+``
   skupper gateway bind amq-service localhost 5672
   ``
 - Deploy the quarkus-jms-consumer project to Openshift</br></br>
