@@ -44,4 +44,4 @@
 - At this point, the application running on Openshift should receive these messages. Check the application logs to confirm.
 ![img_2.png](img_2.png)
 - The topology can also be viewed using the skupper web console.
-![img_3.png](img_3.png)
+![img_4.png](img_4.png)
