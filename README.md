@@ -8,31 +8,31 @@
  - A Kubernetes or Openshift cluster
 
  ## Procedure
- - Login to the Openshift cluster from a terminal
+ - Login to the Openshift cluster from a terminal</br></br>
  ``oc login``
-- Initialize Skupper in the selected namespace
+- Initialize Skupper in the selected namespace</br></br>
  ``skupper init --enable-console --console-password=admin --enable-flow-collector``
-- Initialize Skupper gateway for local services
+- Initialize Skupper gateway for local services</br></br>
  `` skupper gateway init --type docker
   ``
-- Create and bind local service
+- Create and bind local service</br></br>
 ``skupper service create amq-service 5672
   skupper gateway bind amq-service localhost 5672
   ``
-- Deploy the quarkus-jms-consumer project to Openshift
+- Deploy the quarkus-jms-consumer project to Openshift</br></br>
  ``cd quarkus-jms-consumer && mvn clean install -Dquarkus.kubernetes.deploy=true -Dquarkus.kubernetes-client.trust-certs=true``
 - The following screenshot shows that the application is connected to the local AMQ broker through 
   amq-service created with Skupper earlier.
 ![img.png](img.png)
 
-- Run the quarkus-jms-producer application locally 
+- Run the quarkus-jms-producer application locally </br></br>
  ``cd quarkus-jms-producer && mvn quarkus:dev``
 
 ![img_1.png](img_1.png)
 
 - The application running locally is connecting to the localhost as you can see from the screenshot.
 
-- Call the rest API to send messages to the local application.
+- Call the rest API to send messages to the local application.</br></br>
 
 ``curl --location 'http://localhost:8080/register' --header 'Content-Type: application/json' --data '{"firstName" : "Foo","lastName" : "Bar",
 "address" : "Cwa",
